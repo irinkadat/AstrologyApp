@@ -100,8 +100,6 @@ class MainVC: UIViewController, ColorUpdateDelegate {
         inputFieldSV.distribution = .fillProportionally
         inputFieldSV.spacing = 4
         
-        
-        
         let zodiacLabel = UILabel()
         zodiacLabel.text = "ზოდიაქოს სახელი"
         zodiacLabel.textColor = .white
@@ -110,7 +108,7 @@ class MainVC: UIViewController, ColorUpdateDelegate {
         inputField.placeholder = "მერწყული"
         inputField.textColor = .white
         inputField.font = UIFont.systemFont(ofSize: 12)
-
+        
         inputField.layer.borderWidth = 1.0
         inputField.layer.cornerRadius = 4.0
         inputField.layer.borderColor = UIColor(red: 221/255, green: 221/255, blue: 221/255, alpha: 1.0).cgColor
@@ -135,7 +133,6 @@ class MainVC: UIViewController, ColorUpdateDelegate {
             inputFieldSV.heightAnchor.constraint(equalToConstant: 70)
         ])
         
-        
     }
     
     func addNextButton() {
@@ -150,8 +147,6 @@ class MainVC: UIViewController, ColorUpdateDelegate {
         nextButton.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(nextButton)
         
-//        nextButton.contentEdgeInsets = UIEdgeInsets(top: 12, left: 0, bottom: 12, right: 0)
-    
         nextButton.addTarget(self, action: #selector(handleNextButton), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
@@ -166,31 +161,31 @@ class MainVC: UIViewController, ColorUpdateDelegate {
     
     @objc func handleNextButton() {
         guard let userInput = inputField.text else {
-                print("User input is empty")
-                return
-            }
-
-            if let zodiac = Zodiac.zodiac(forName: userInput) {
-                print("Zodiac found: \(zodiac.sign)")
-                print("Description: \(zodiac.description)")
-                print("Opposite sign: \(zodiac.polarSign)")
-                
-                let signInfoPage = DescriptionVC()
-                signInfoPage.zodiacTitle = zodiac.sign
-                signInfoPage.zodiacDescription = zodiac.description
-                signInfoPage.zodiacImageName = zodiac.imageName
-                
-                self.navigationController?.pushViewController(signInfoPage, animated: true)
-                
-            } else {
-                print("Zodiac not found")
-            }
+            print("User input is empty")
+            return
+        }
+        
+        if let zodiac = Zodiac.zodiac(forName: userInput) {
+            print("Zodiac found: \(zodiac.sign)")
+            print("Description: \(zodiac.description)")
+            print("Opposite sign: \(zodiac.polarSign)")
+            
+            let signInfoPage = DescriptionVC()
+            signInfoPage.zodiacTitle = zodiac.sign
+            signInfoPage.zodiacDescription = zodiac.description
+            signInfoPage.zodiacImageName = zodiac.imageName
+            
+            self.navigationController?.pushViewController(signInfoPage, animated: true)
+            
+        } else {
+            print("Zodiac not found")
+        }
         
     }
     func updateBackgroundColor(to colour: UIColor) {
-    
-           self.view.backgroundColor = colour
-       }
+        
+        self.view.backgroundColor = colour
+    }
 }
 
 #Preview {

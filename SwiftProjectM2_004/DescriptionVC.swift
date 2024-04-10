@@ -8,7 +8,7 @@
 import UIKit
 
 class DescriptionVC: UIViewController {
-
+    
     var zodiacTitle: String = ""
     var zodiacDescription: String = ""
     var zodiacImageName: String = ""
@@ -18,14 +18,14 @@ class DescriptionVC: UIViewController {
     let textStackView = UIStackView()
     
     let backgroundImageView: UIImageView = {
-      let imageView = UIImageView(image: UIImage(named: "backgroundImg"))
-      imageView.translatesAutoresizingMaskIntoConstraints = false
-      imageView.contentMode = .scaleAspectFill
+        let imageView = UIImageView(image: UIImage(named: "backgroundImg"))
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.contentMode = .scaleAspectFill
         
-      return imageView
+        return imageView
     }()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.addSubview(backgroundImageView)
@@ -40,12 +40,12 @@ class DescriptionVC: UIViewController {
     func configureBackground() {
         self.view.backgroundColor = UIColor(red: 30/255.0, green: 31/255.0, blue: 36/255.0, alpha: 1.0)
         NSLayoutConstraint.activate([
-             backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
-             backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-             backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-             backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-           ])
-
+            backgroundImageView.topAnchor.constraint(equalTo: view.topAnchor),
+            backgroundImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            backgroundImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            backgroundImageView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
     }
     
     func addMainSV() {
@@ -61,7 +61,7 @@ class DescriptionVC: UIViewController {
             mainSV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             mainSV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             mainSV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30)
-
+            
         ])
     }
     
@@ -73,7 +73,7 @@ class DescriptionVC: UIViewController {
         zodiacSv.spacing = -12
         zodiacSv.translatesAutoresizingMaskIntoConstraints = false
         zodiacImgV.contentMode = .scaleAspectFill
-
+        
         let title = UILabel()
         title.text = zodiacTitle
         title.textColor = .white
@@ -85,7 +85,7 @@ class DescriptionVC: UIViewController {
         
         NSLayoutConstraint.activate([
             zodiacSv.topAnchor.constraint(equalTo: mainSV.topAnchor, constant: 55),
-       
+            
         ])
     }
     
@@ -103,16 +103,10 @@ class DescriptionVC: UIViewController {
         description.textColor = UIColor(red: 139/255, green: 139/255, blue: 139/255, alpha: 1.0)
         description.backgroundColor = .none
         description.isScrollEnabled = false
-
+        
         textStackView.addArrangedSubview(description)
         
         mainSV.addArrangedSubview(textStackView)
-        
-        NSLayoutConstraint.activate([
-//            textStackView.topAnchor.constraint(equalTo: zodiacSv.bottomAnchor, constant: 30),
-//            textStackView.leadingAnchor.constraint(equalTo: mainSV.leadingAnchor)
-
-        ])
         
     }
     
@@ -123,9 +117,9 @@ class DescriptionVC: UIViewController {
         let polarSignButton = UIButton(type: .system)
         polarSignButton.setTitle("პოლარული ნიშანი", for: .normal)
         polarSignButton.setTitleColor(.white, for: .normal)
-                
+        
         polarSignButton.backgroundColor = UIColor(red: 80/255, green: 0/255, blue: 182/255, alpha: 1.0)
-                
+        
         polarSignButton.layer.cornerRadius = 12.0
         polarSignButton.layer.masksToBounds = true
         polarSignButton.translatesAutoresizingMaskIntoConstraints = false
@@ -134,15 +128,13 @@ class DescriptionVC: UIViewController {
         
         polarSignButton.addTarget(self, action: #selector(moveToPolarSignPage), for: .touchUpInside)
         
-//        polarSignButton.contentEdgeInsets = UIEdgeInsets(top: 14, left: 0, bottom: 14, right: 0)
-
-        
+    
         NSLayoutConstraint.activate([
             st.topAnchor.constraint(equalTo: textStackView.bottomAnchor, constant: 10),
             st.leadingAnchor.constraint(equalTo: mainSV.leadingAnchor),
             st.trailingAnchor.constraint(equalTo: mainSV.trailingAnchor),
             st.heightAnchor.constraint(equalToConstant: 46)
-
+            
             
         ])
     }
@@ -152,7 +144,7 @@ class DescriptionVC: UIViewController {
             print("Opposite sign not found")
             return
         }
-    
+        
         let polarSignPage = OppositeSignVC()
         polarSignPage.oppositeZodiac = oppositeSign.polarSign
         polarSignPage.oppositeSignImg = oppositeSign.imageName

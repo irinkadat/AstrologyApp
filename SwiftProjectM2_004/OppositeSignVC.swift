@@ -35,8 +35,8 @@ class OppositeSignVC: UIViewController {
         addButtonsSV()
         
         if let mainVC = self.navigationController?.viewControllers.first as? MainVC {
-                   colorUpdateDelegate = mainVC
-               }
+            colorUpdateDelegate = mainVC
+        }
         
     }
     
@@ -56,16 +56,16 @@ class OppositeSignVC: UIViewController {
         mainSV.translatesAutoresizingMaskIntoConstraints = false
         mainSV.spacing = 135
         mainSV.distribution = .fill
-
+        
         
         self.view.addSubview(mainSV)
         NSLayoutConstraint.activate([
-
+            
             mainSV.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
             mainSV.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             mainSV.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
             
-//            mainSV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
+            //            mainSV.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20)
             
         ])
     }
@@ -92,7 +92,7 @@ class OppositeSignVC: UIViewController {
             zodiacSv.heightAnchor.constraint(equalToConstant: 156),
             zodiacSv.widthAnchor.constraint(equalToConstant: 156),
             zodiacSv.centerXAnchor.constraint(equalTo: mainSV.centerXAnchor),
- 
+            
         ])
     }
     
@@ -109,23 +109,23 @@ class OppositeSignVC: UIViewController {
         
         let redButton = createButton(title: "ლურჯი ღილაკი", colour: redColor)
         let blueButton = createButton(title: "წითელი ღილაკი", colour: blueColor)
-
-
+        
+        
         buttonStackView.addArrangedSubview(redButton)
         buttonStackView.addArrangedSubview(blueButton)
         
         mainSV.addSubview(buttonStackView)
-
+        
     }
     
     @objc func backToMain(sender: UIButton) {
         let button = sender
         self.navigationController?.popToRootViewController(animated: true)
-         if let delegate = colorUpdateDelegate {
-             delegate.updateBackgroundColor(to: button.backgroundColor!)
-         } else {
-             print("Colour update delegate not set")
-         }
+        if let delegate = colorUpdateDelegate {
+            delegate.updateBackgroundColor(to: button.backgroundColor!)
+        } else {
+            print("Colour update delegate not set")
+        }
     }
     
     func createButton(title: String, colour: UIColor) -> UIButton {
@@ -139,10 +139,9 @@ class OppositeSignVC: UIViewController {
         button.backgroundColor = colour
         button.addTarget(self, action: #selector(backToMain(sender: )), for: .touchUpInside)
         
-//        button.contentEdgeInsets = UIEdgeInsets(top: 16, left: 0, bottom: 16, right: 0)
         return button
     }
-
+    
 }
 
 #Preview {
