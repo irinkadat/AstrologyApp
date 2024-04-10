@@ -64,9 +64,6 @@
 			children = (
 				8C449F0B2BC5E17500B2A6A8 /* AppDelegate.swift */,
 				8C449F0D2BC5E17500B2A6A8 /* SceneDelegate.swift */,
-				8C449F0F2BC5E17500B2A6A8 /* MainVC.swift */,
-				8C449F202BC5E40300B2A6A8 /* DescriptionVC.swift */,
-				8C449F222BC5E41C00B2A6A8 /* OppositeSignVC.swift */,
 				8C449F242BC5E6C400B2A6A8 /* Controllers */,
 				8C449F142BC5E17700B2A6A8 /* Assets.xcassets */,
 				8C449F162BC5E17700B2A6A8 /* LaunchScreen.storyboard */,
@@ -80,6 +77,9 @@
 		8C449F242BC5E6C400B2A6A8 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C449F0F2BC5E17500B2A6A8 /* MainVC.swift */,
+				8C449F202BC5E40300B2A6A8 /* DescriptionVC.swift */,
+				8C449F222BC5E41C00B2A6A8 /* OppositeSignVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
